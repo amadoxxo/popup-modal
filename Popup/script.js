@@ -1,13 +1,21 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const botonMostrarPopup = document.getElementById("mostrarPopup");
-    const botonCerrarPopup = document.getElementById("cerrarPopup");
-    const popup = document.getElementById("miPopup");
+const showModalButton = document.getElementById('showModal');
+const modal = document.getElementById('modal');
+const modalText = document.getElementById('modalText');
+const closeButton = document.getElementsByClassName('close')[0];
 
-    botonMostrarPopup.addEventListener("click", function () {
-        popup.style.display = "block";
-    });
+showModalButton.addEventListener('click', function () {
+    modal.style.display = 'block';
+    modalText.style.display = 'block';
+});
 
-    botonCerrarPopup.addEventListener("click", function () {
-        popup.style.display = "none";
-    });
+closeButton.addEventListener('click', function () {
+    modal.style.display = 'none';
+    modalText.style.display = 'none';
+});
+
+window.addEventListener('click', function (event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+        modalText.style.display = 'none';
+    }
 });
